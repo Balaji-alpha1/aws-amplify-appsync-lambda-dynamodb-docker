@@ -1,0 +1,46 @@
+{
+  "api": {
+    "awsamplifyappsynclam": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "function": {
+    "todoApp": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_todoApp_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "todoApp"
+        }
+      ]
+    },
+    "AMPLIFY_function_todoApp_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "todoApp"
+        }
+      ]
+    }
+  }
+}
